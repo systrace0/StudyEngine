@@ -6,7 +6,6 @@ add_library(glad STATIC
 target_include_directories(glad PUBLIC
     ${CMAKE_SOURCE_DIR}/external/glad/include
 )
-
 # ImGui - no CMakeLists of its own, build manually
 add_library(imgui STATIC
     ${imgui_SOURCE_DIR}/imgui.cpp

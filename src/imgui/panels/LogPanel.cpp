@@ -7,7 +7,6 @@ static_assert((int)trace::LogLevel::Count == 6, "Update LogPanel filter array");
 
 namespace trace
 {
-
 	std::vector<LogEntry> LogPanel::s_entries;
 
 	void LogPanel::push(const LogEntry& entry)

@@ -16,10 +16,12 @@ namespace trace
 		m_vbo.bind();
 		m_ebo.bind();
 
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));					// Position
-		glEnableVertexAttribArray(0);																// Enable slot 0
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, color)); // Color - starts 12 bytes later
-		glEnableVertexAttribArray(1);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
+		glEnableVertexAttribArray(0);																		 // Enable slot 0
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, color));	 // Color - starts 12 bytes later
+		glEnableVertexAttribArray(1);																		 // Enable slot 1
+		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords)); // Texture - starts 12 bytes later
+		glEnableVertexAttribArray(2);																		 // Enable slot 2
 	}
 
 	void Mesh::draw() const
