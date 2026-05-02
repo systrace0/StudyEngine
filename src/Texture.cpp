@@ -1,4 +1,5 @@
 #include "Texture.h"
+#include "Core.h"
 
 #include "stb_image.h"
 
@@ -65,6 +66,8 @@ namespace trace
 
 	void Texture::bind(U32 slot) const
 	{
+		ASSERT(m_id != 0, "Calling bind() on unitialized Texture");
+		ASSERT(slot < 32, "Texture slot out of range (Max. 31)");
 		glActiveTexture(GL_TEXTURE0 + slot); // Through GL_TEXTURE31
 		glBindTexture(GL_TEXTURE_2D, m_id);
 	}

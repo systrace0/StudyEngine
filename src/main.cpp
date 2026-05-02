@@ -7,6 +7,7 @@
 #include "Shader.h"
 #include "Mesh.h"
 #include "Texture.h"
+#include "Primitives.h"
 
 #include "imgui/ImGuiManager.h"
 #include "imgui/panels/DebugPanel.h"
@@ -20,21 +21,10 @@ int main()
 {
 	Logger::init();
 
-	std::vector<Vertex> vertices = {
-		//		Position			Color
-		{{ 0.5f,  0.5f, 0.0f}, {1.0f, 0.0f, 0.0f}, {1.0f, 1.0f}},
-		{{ 0.5f, -0.5f, 0.0f}, {0.0f, 1.0f, 0.0f}, {1.0f, 0.0f}},
-		{{-0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 1.0f}, {0.0f, 0.0f}},
-		{{-0.5f,  0.5f, 0.0f}, {1.0f, 1.0f, 0.0f}, {0.0f, 1.0f}}
-	};
-
-	std::vector<U32> indices = {
-		0, 1, 3,
-		1, 2, 3
-	};
-
 	// Window owns everything
 	Window window{ 1280, 720, "TRACE Engine" };
+
+	glEnable(GL_DEPTH_TEST);
 
 	Logger::info("Engine initialized successfully.");
 
@@ -42,7 +32,7 @@ int main()
 	gui.registerDefaultPanels();
 
 	Shader shader("shaders/basic.vert", "shaders/basic.frag");
-	Mesh mesh(vertices, indices);
+	Mesh quad = trace::Primitives::createQuad();
 	Texture texture1("assets/textures/container.jpg");
 
 	shader.use();
@@ -51,11 +41,11 @@ int main()
 	while (!window.shouldClose())
 	{
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		shader.use();
 		texture1.bind(0);
-		mesh.draw();
+		quad.draw();
 
 		gui.beginFrame();
 		// Panels
