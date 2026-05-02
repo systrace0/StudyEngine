@@ -13,6 +13,10 @@
 #include "imgui/panels/DebugPanel.h"
 #include "imgui/panels/LogPanel.h"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include "glad/glad.h"
 
 using namespace trace;
@@ -43,7 +47,12 @@ int main()
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		glm::mat4 transform = glm::mat4(1.0f);
+		transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+		transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+
 		shader.use();
+		shader.setMat4("transform", glm::value_ptr(transform));
 		texture1.bind(0);
 		quad.draw();
 
