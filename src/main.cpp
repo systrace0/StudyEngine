@@ -6,6 +6,7 @@
 
 #include "Shader.h"
 #include "Mesh.h"
+#include "Texture.h"
 
 #include "imgui/ImGuiManager.h"
 #include "imgui/panels/DebugPanel.h"
@@ -21,13 +22,15 @@ int main()
 
 	std::vector<Vertex> vertices = {
 		//		Position			Color
-		{{ 0.0f,  0.5f, 0.0f}, {1.0f, 0.0f, 0.0 }},
-		{{-0.5f, -0.5f, 0.0f}, {0.0f, 1.0f, 0.0f}},
-		{{ 0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 1.0f}}
+		{{ 0.5f,  0.5f, 0.0f}, {1.0f, 0.0f, 0.0f}, {1.0f, 1.0f}},
+		{{ 0.5f, -0.5f, 0.0f}, {0.0f, 1.0f, 0.0f}, {1.0f, 0.0f}},
+		{{-0.5f, -0.5f, 0.0f}, {0.0f, 0.0f, 1.0f}, {0.0f, 0.0f}},
+		{{-0.5f,  0.5f, 0.0f}, {1.0f, 1.0f, 0.0f}, {0.0f, 1.0f}}
 	};
 
 	std::vector<U32> indices = {
-		0, 1, 2
+		0, 1, 3,
+		1, 2, 3
 	};
 
 	// Window owns everything
@@ -40,6 +43,10 @@ int main()
 
 	Shader shader("shaders/basic.vert", "shaders/basic.frag");
 	Mesh mesh(vertices, indices);
+	Texture texture1("assets/textures/container.jpg");
+
+	shader.use();
+	shader.setInt("u_texture", 0);
 
 	while (!window.shouldClose())
 	{
@@ -47,6 +54,7 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		shader.use();
+		texture1.bind(0);
 		mesh.draw();
 
 		gui.beginFrame();
