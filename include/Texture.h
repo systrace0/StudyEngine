@@ -27,7 +27,7 @@ namespace trace
 
 	private:
 		GLuint m_id{ 0 };
-		int m_width{};
-		int m_height{};
+		int	   m_width{};
+		int    m_height{};
 	};
 }
