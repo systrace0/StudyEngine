@@ -25,7 +25,7 @@ target_include_directories(TraceLib PUBLIC
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE TraceLib)
-target_link_libraries(TraceLib PUBLIC glad glfw imgui)
+target_link_libraries(TraceLib PUBLIC glad glfw imgui glm::glm)
 
 target_include_directories(TraceLib PRIVATE
     ${CMAKE_SOURCE_DIR}/include
