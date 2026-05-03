@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 
-#include "Logger.h"
-#include "imgui/panels/LogPanel.h"
-#include "Vertex.h"
+#include "Core/Logger.h"
+#include "ImGui/panels/LogPanel.h"
+#include "Renderer/Vertex.h"
 
 // TODO: Fix glad build error
 

@@ -3,8 +3,8 @@
 #include <cstdio>
 #include <stdexcept>
 
-#include "Core.h"
-#include "Logger.h"
+#include "Core/Defines.h"
+#include "Core/Logger.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

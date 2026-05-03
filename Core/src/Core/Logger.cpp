@@ -1,6 +1,6 @@
 #include "Logger.h"
 
-#include "imgui/panels/LogPanel.h"
+#include "ImGui/panels/LogPanel.h"
 
 #include <iostream>
 #include <chrono>

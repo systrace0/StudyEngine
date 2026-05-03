@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core.h"
+#include "Core/Defines.h"
 
 // TODO: Add texCoords[2] to Vertex Struct and static_assert offsetof for texCoord when implementing Textures
 

@@ -1,18 +1,18 @@
 #include <cstddef>
 
-#include "Window.h"
-#include "Core.h"
-#include "Logger.h"
+#include "Window/Window.h"
+#include "Core/Defines.h"
+#include "Core/Logger.h"
 
-#include "Shader.h"
-#include "Mesh.h"
-#include "Texture.h"
-#include "Primitives.h"
-#include "Camera.h"
+#include "Renderer/Shader.h"
+#include "Renderer/Mesh.h"
+#include "Renderer/Texture.h"
+#include "Renderer/Primitives.h"
+#include "Camera/Camera.h"
 
-#include "imgui/ImGuiManager.h"
-#include "imgui/panels/DebugPanel.h"
-#include "imgui/panels/LogPanel.h"
+#include "ImGui/ImGuiManager.h"
+#include "ImGui/panels/DebugPanel.h"
+#include "ImGui/panels/LogPanel.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

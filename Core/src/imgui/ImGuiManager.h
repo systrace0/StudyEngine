@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Panel.h"
-#include "Window.h"
+#include "ImGui/Panel.h"
+#include "Window/Window.h"
+
 #include "imgui.h"
 
 #include <vector>

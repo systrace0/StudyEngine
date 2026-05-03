@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Panel.h"
+#include "ImGui/Panel.h"
 
 #include <chrono>
 #include <array>

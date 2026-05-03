@@ -1,15 +1,14 @@
 add_executable(TraceTests
-	LoggerTests.cpp
+    LoggerTests.cpp
 )
 
 target_link_libraries(TraceTests PRIVATE
-	gtest_main
-	TraceLib 
+    gtest_main
+    TraceCore
 )
 
 target_include_directories(TraceTests PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_SOURCE_DIR}/Core/src
 )
 
 include(GoogleTest)

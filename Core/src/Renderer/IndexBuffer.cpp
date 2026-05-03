@@ -1,6 +1,6 @@
-#include "IndexBuffer.h"
-#include "Core.h"
-#include "Logger.h"
+#include "Renderer/IndexBuffer.h"
+#include "Core/Defines.h"
+#include "Core/Logger.h"
 
 namespace trace
 {

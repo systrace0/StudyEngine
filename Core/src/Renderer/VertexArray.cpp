@@ -1,6 +1,6 @@
-#include "VertexArray.h"
-#include "Core.h"
-#include "Logger.h"
+#include "Renderer/VertexArray.h"
+#include "Core/Defines.h"
+#include "Core/Logger.h"
 
 namespace trace
 {

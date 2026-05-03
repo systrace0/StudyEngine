@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Panel.h"
-#include "LogEntry.h"
+#include "ImGui/Panel.h"
+#include "Core/LogEntry.h"
 
 #include <vector>
 
