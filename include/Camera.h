@@ -21,6 +21,7 @@ namespace trace
 
 		[[nodiscard]] glm::vec3 position() const { return m_position; }
 		[[nodiscard]] glm::vec3 forward()  const { return m_forward; }
+		void resetFirstMouse() { m_firstMouse = true; }
 
 	private:
 		// Position and orientation

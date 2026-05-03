@@ -4,11 +4,11 @@
 
 namespace trace
 {
-	Camera::Camera(F32 aspectRatio, F32 fov, F32 near, F32 far)
+	Camera::Camera(F32 aspectRatio, F32 fov, F32 nearPane, F32 farPane)
 		: m_aspectRatio(aspectRatio)
 		, m_fov(fov)
-		, m_near(near)
-		, m_far(far)
+		, m_near(nearPane)
+		, m_far(farPane)
 	{
 		updateVectors();
 	}
@@ -21,6 +21,8 @@ namespace trace
 		if (input.moveBack)	   m_position -= m_forward * velocity;
 		if (input.moveRight)   m_position += m_right * velocity;
 		if (input.moveLeft)    m_position -= m_right * velocity;
+		if (input.moveUp)	   m_position += m_up * velocity;
+		if (input.moveDown)    m_position -= m_up * velocity;
 	}
 
 	void Camera::onMouseMove(F32 xPos, F32 yPos)
@@ -30,6 +32,7 @@ namespace trace
 			m_lastMouseX = xPos;
 			m_lastMouseY = yPos;
 			m_firstMouse = false;
+			return;
 		}
 
 		F32 xOffset = (xPos - m_lastMouseX) * m_mouseSensitivity;
