@@ -1,6 +1,6 @@
-#include "Primitives.h"
-#include "Mesh.h"
-#include "Vertex.h"
+#include "Renderer/Primitives.h"
+#include "Renderer/Mesh.h"
+#include "Renderer/Vertex.h"
 
 #include <vector>
 

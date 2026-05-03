@@ -1,18 +1,20 @@
-target_sources(TraceLib PRIVATE
-    stb_image.cpp
-    Window.cpp
-    Shader.cpp
-    VertexArray.cpp
-    VertexBuffer.cpp
-    IndexBuffer.cpp
-    Mesh.cpp
-    Logger.cpp
-    imgui/ImGuiManager.cpp
-    imgui/panels/LogPanel.cpp
-    imgui/panels/DebugPanel.cpp
-    Texture.cpp
-    Primitives.cpp
-    Camera.cpp)
+target_sources(TraceCore PRIVATE
+    src/Window/Window.cpp
+    src/Core/Logger.cpp
+    src/Core/App.cpp
+    src/Renderer/Shader.cpp
+    src/Renderer/VertexArray.cpp
+    src/Renderer/VertexBuffer.cpp
+    src/Renderer/IndexBuffer.cpp
+    src/Renderer/Mesh.cpp
+    src/Renderer/Texture.cpp
+    src/Renderer/Primitives.cpp
+    src/Renderer/stb_image.cpp
+    src/Camera/Camera.cpp
+    src/ImGui/ImGuiManager.cpp
+    src/ImGui/panels/LogPanel.cpp
+    src/ImGui/panels/DebugPanel.cpp
+)
 
 # Thin executable just has main
 target_sources(${PROJECT_NAME} PRIVATE

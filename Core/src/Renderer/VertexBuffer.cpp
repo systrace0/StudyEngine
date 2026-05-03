@@ -1,6 +1,6 @@
-#include "VertexBuffer.h"
-#include "Core.h"
-#include "Logger.h"
+#include "Renderer/VertexBuffer.h"
+#include "Core/Defines.h"
+#include "Core/Logger.h"
 
 namespace trace
 {

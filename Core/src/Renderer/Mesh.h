@@ -1,10 +1,10 @@
 #pragma once
 
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "IndexBuffer.h"
+#include "Renderer/VertexArray.h"
+#include "Renderer/VertexBuffer.h"
+#include "Renderer/IndexBuffer.h"
 
-#include "Vertex.h"
+#include "Renderer/Vertex.h"
 
 namespace trace
 {

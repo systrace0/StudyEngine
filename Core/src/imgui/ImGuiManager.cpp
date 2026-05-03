@@ -1,6 +1,6 @@
 #include "ImGuiManager.h"
 
-#include "Core.h"
+#include "Core/Defines.h"
 
 #include "panels/DebugPanel.h"
 #include "panels/LogPanel.h"

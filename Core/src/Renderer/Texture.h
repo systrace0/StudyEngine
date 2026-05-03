@@ -2,7 +2,7 @@
 
 #include "glad/glad.h"
 
-#include "Core.h"
+#include "Core/Defines.h"
 
 namespace trace
 {
