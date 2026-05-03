@@ -1,6 +1,7 @@
 #include "App.h"
 
 #include <glm/gtc/type_ptr.hpp>
+#include <imgui_impl_glfw.h>
 
 namespace trace
 {
@@ -31,6 +32,9 @@ namespace trace
 		glfwSetCursorPosCallback(m_window.handle(),
 			[](GLFWwindow* w, double x, double y)
 			{
+				// Chain to ImGui first
+				ImGui_ImplGlfw_CursorPosCallback(w, x, y);
+
 				auto* cam = static_cast<Camera*>(glfwGetWindowUserPointer(w));
 				if (glfwGetInputMode(w, GLFW_CURSOR) == GLFW_CURSOR_DISABLED)
 					cam->onMouseMove((F32)x, (F32)y);
@@ -39,6 +43,9 @@ namespace trace
 		glfwSetScrollCallback(m_window.handle(),
 			[](GLFWwindow* w, double x, double y)
 			{
+				// Chain to ImGui first
+				ImGui_ImplGlfw_ScrollCallback(w, x, y);
+
 				auto* cam = static_cast<Camera*>(glfwGetWindowUserPointer(w));
 				if (glfwGetInputMode(w, GLFW_CURSOR) == GLFW_CURSOR_DISABLED)
 					cam->onScroll((F32)y);
@@ -86,6 +93,8 @@ namespace trace
 	{
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		Logger::debug("WantCaptureMouse: {}", ImGui::GetIO().WantCaptureMouse);
 
 		m_camera.setAspectRatio((F32)m_window.width() / (F32)m_window.height());
 
