@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)  # Don't allow gcc/msvc extensions. Stay portable.
 option(ENABLE_ASAN "Enable AddressSanitizer (and UBSan on non-MSVC)" OFF)
 
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+endif()
+
 # ── Engine executable ──────────────────────────────────────────────────────────
 add_library(TraceLib STATIC)
 add_executable(${PROJECT_NAME})
@@ -35,10 +39,6 @@ if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4 /FS)
 else()
     target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic)
-endif()
-
-if(MSVC)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
 
 add_subdirectory(src)

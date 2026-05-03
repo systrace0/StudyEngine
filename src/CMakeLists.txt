@@ -11,7 +11,8 @@ target_sources(TraceLib PRIVATE
     imgui/panels/LogPanel.cpp
     imgui/panels/DebugPanel.cpp
     Texture.cpp
-    Primitives.cpp)
+    Primitives.cpp
+    Camera.cpp)
 
 # Thin executable just has main
 target_sources(${PROJECT_NAME} PRIVATE
