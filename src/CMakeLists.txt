@@ -11,7 +11,8 @@ target_sources(TraceLib PRIVATE
     imgui/panels/LogPanel.cpp
     imgui/panels/DebugPanel.cpp
     Texture.cpp
-    Primitives.cpp)
+    Primitives.cpp
+    Camera.cpp)
 
 # Thin executable just has main
 target_sources(${PROJECT_NAME} PRIVATE
@@ -25,7 +26,7 @@ target_include_directories(TraceLib PUBLIC
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE TraceLib)
-target_link_libraries(TraceLib PUBLIC glad glfw imgui)
+target_link_libraries(TraceLib PUBLIC glad glfw imgui glm::glm)
 
 target_include_directories(TraceLib PRIVATE
     ${CMAKE_SOURCE_DIR}/include

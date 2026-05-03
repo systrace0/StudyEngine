@@ -46,6 +46,13 @@ namespace trace
 			Logger::fatal("Failed to initialize GLAD");
 		}
 
+		glViewport(0, 0, width, height);
+
+		glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* w, int width, int height)
+			{
+				glViewport(0, 0, width, height);
+			});
+
 		// Setup GL debug output in debug builds after GL context is initialized
 #ifndef NDEBUG
 		// Enable debug output if available
