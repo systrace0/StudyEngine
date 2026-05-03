@@ -41,6 +41,13 @@ int main()
 				cam->onMouseMove((F32)xPos, (F32)yPos);
 		});
 
+	glfwSetScrollCallback(window.handle(), [](GLFWwindow* w, double xOffset, double yOffset)
+		{
+			Camera* cam = static_cast<Camera*>(glfwGetWindowUserPointer(w));
+			if (glfwGetInputMode(w, GLFW_CURSOR) == GLFW_CURSOR_DISABLED)
+				cam->onScroll((F32)yOffset);
+		});
+
 	// Capute mouse cursor
 	glfwSetInputMode(window.handle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 

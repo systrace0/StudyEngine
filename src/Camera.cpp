@@ -51,6 +51,13 @@ namespace trace
 		updateVectors();
 	}
 
+	void Camera::onScroll(F32 yOffset)
+	{
+		m_fov -= yOffset;
+		if (m_fov < 1.0f)  m_fov = 1.0f;
+		if (m_fov > 90.0f) m_fov = 90.0f;
+	}
+
 	glm::mat4 Camera::getViewMatrix() const
 	{
 		return glm::lookAt(m_position, m_position + m_forward, m_up);
