@@ -94,8 +94,6 @@ namespace trace
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		Logger::debug("WantCaptureMouse: {}", ImGui::GetIO().WantCaptureMouse);
-
 		m_camera.setAspectRatio((F32)m_window.width() / (F32)m_window.height());
 
 		m_shader.use();
