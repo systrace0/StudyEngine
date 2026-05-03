@@ -15,6 +15,8 @@ namespace trace
 
 		void onMouseMove(F32 xPos, F32 yPos);
 		void onScroll(F32 yOffset);
+		void setAspectRatio(F32 ratio) { m_aspectRatio = ratio; }
+
 
 		[[nodiscard]] glm::mat4 getViewMatrix()		  const;
 		[[nodiscard]] glm::mat4 getProjectionMatrix() const;

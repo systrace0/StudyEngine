@@ -66,6 +66,8 @@ int main()
 
 	while (!window.shouldClose())
 	{
+		camera.setAspectRatio((F32)window.width() / (F32)window.height());
+
 		// Delta time
 		F32 currentFrame = (F32)glfwGetTime();
 		deltaTime = currentFrame - lastFrame;

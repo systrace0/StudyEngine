@@ -23,8 +23,19 @@ namespace trace
 
 		// Query - const because they don't modify state
 		[[nodiscard]] bool shouldClose() const;
-		[[nodiscard]] int width() const { return m_width; }
-		[[nodiscard]] int height() const { return m_height; }
+		[[nodiscard]] int width()  const
+		{
+			int w, h;
+			glfwGetWindowSize(m_window, &w, &h);
+			return w;
+		}
+
+		[[nodiscard]] int height() const
+		{
+			int w, h;
+			glfwGetWindowSize(m_window, &w, &h);
+			return h;
+		}
 
 		// Actions
 		void swapBuffers() const;
