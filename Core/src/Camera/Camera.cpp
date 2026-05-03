@@ -21,8 +21,8 @@ namespace trace
 		if (input.moveBack)	   m_position -= m_forward * velocity;
 		if (input.moveRight)   m_position += m_right * velocity;
 		if (input.moveLeft)    m_position -= m_right * velocity;
-		if (input.moveUp)	   m_position += m_up * velocity;
-		if (input.moveDown)    m_position -= m_up * velocity;
+		if (input.moveUp)	   m_position += glm::vec3(0.0f, 1.0f, 0.0f) * velocity;
+		if (input.moveDown)    m_position -= glm::vec3(0.0f, 1.0f, 0.0f) * velocity;
 	}
 
 	void Camera::onMouseMove(F32 xPos, F32 yPos)
