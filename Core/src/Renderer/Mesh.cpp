@@ -12,6 +12,8 @@ namespace trace
 		ASSERT(m_vbo.id() != 0, "VBO failed to create");
 		ASSERT(m_ebo.id() != 0, "EBO failed to create");
 
+		m_vao.setIndexCount(m_indexCount);
+
 		m_vao.bind();
 		m_vbo.bind();
 		m_ebo.bind();

@@ -9,6 +9,7 @@ target_sources(TraceCore PRIVATE
     src/Renderer/IndexBuffer.cpp
     src/Renderer/Primitives.cpp
     src/Renderer/stb_image.cpp
+    src/Renderer/RenderCommand.cpp
     src/Camera/Camera.cpp
     src/ImGui/ImGuiManager.cpp
     src/ImGui/panels/LogPanel.cpp

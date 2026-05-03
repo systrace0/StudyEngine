@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Core/Defines.h"
+
 #include <glad/glad.h>
 
 namespace trace
@@ -21,7 +23,11 @@ namespace trace
 
 		[[nodiscard]] GLuint id() const { return m_id; }
 
+		void setIndexCount(U32 count) { m_indexCount = count; }
+		[[nodiscard]] U32 indexCount() const { return m_indexCount; }
+
 	private:
 		GLuint m_id{ 0 };
+		U32 m_indexCount{ 0 };
 	};
 }
